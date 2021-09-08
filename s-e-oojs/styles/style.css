@@ -1,0 +1,91 @@
+body.phase1 {
+    background-color: black;
+}
+
+/* ==============================================================     */
+/* ==============================================================     */
+/* ==============================================================     */
+/* ==============================================================     */
+
+body.squiddy {
+    background-color: teal;    
+}
+
+/* ==============================================================     */
+/* ==============================================================     */
+
+body.GE{
+    background-color: black;
+}
+
+
+main section.GE {    
+    /* --------CENTER TO VIEWPORT-------- */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* ---------------------------------- */
+
+    background: black;
+    color: teal;
+    
+    width: 80%;
+    height: 80%;    
+    
+    border-radius: 5em;
+    
+    padding: 1em;
+}
+
+main section.GE div {
+    /* --------CENTER TO VIEWPORT-------- */
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* ---------------------------------- */
+
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/* ==============================================================     */
+/* ==============================================================     */
+
+main section.squiddy {
+    /* --------CENTER TO VIEWPORT-------- */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* ---------------------------------- */
+
+    background: black;
+    color: white;
+    
+    width: 300px;
+    height: 300px;    
+
+    border-radius: 5em;
+        
+    padding: 1em;
+
+}
+
+main section.squiddy div {
+    /* --------CENTER VERTICALLY-------- */
+    line-height: 300px;
+    height: 300px;
+    /* --------------------------------- */
+
+    font-size: 75px;
+    text-align: center;
+
+}
+/* ==============================================================     */
+/* ==============================================================     */

@@ -1,6 +1,27 @@
-body.phase1 {
+body.PHASE1 {
     background-color: black;
+    
 }
+
+body.PHASE1 main section div {
+    color: lightblue;
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 200px;
+    text-align: center;
+
+
+    /* --------CENTER TO VIEWPORT-------- */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* ---------------------------------- */
+}
+
+/* - = - =- = - = - = - = - = - =  - = - */
+
+
 
 /* ==============================================================     */
 /* ==============================================================     */

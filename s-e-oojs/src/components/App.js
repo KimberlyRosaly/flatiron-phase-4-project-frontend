@@ -1,11 +1,31 @@
 class App {
     constructor(){
         this.dom = new Dom() 
-        this.phase1()
+        this.PHASE1()
     }
 
-    phase1(){
-        
+    PHASE1(){
+        //GET SOME CSS MATCHED UP FOR PARENT ELEMENT ENCAPSULATED BEAUTY
+        this.dom.body.className = "PHASE1"
+
+        let etext = "Prayer Box"
+        let eID = "PHASE1GREETING"
+        this.dom.createElementANDAppend( 'DIV', etext, this.dom.mainSection, eID )
+        //INJECT THIS CREATION WITH SPECIFICATIONS
+
+        let element = document.querySelector('#PHASE1GREETING')
+        let opacity = 0
+                let fadeAway = setInterval(function() {
+      
+                    if (opacity < 1) {
+                        opacity = opacity + 0.1
+                        element.style.opacity = opacity
+                    } else {
+                        clearInterval(fadeAway)   
+                    }
+                    
+                }, 100)          
+
     }
     
     // phase1(){

@@ -1,9 +1,12 @@
-body.PHASE1 {
+
+body.phase1 {
     background-color: black;
     
 }
 
-body.PHASE1 main section div {
+body.phase1 main section div {
+    
+
     color: lightblue;
     font-family: 'Lovers Quarrel', cursive;
     font-size: 200px;
@@ -21,7 +24,56 @@ body.PHASE1 main section div {
 
 /* - = - =- = - = - = - = - = - =  - = - */
 
+body.phase2 {
+    background-color: rgb(46, 136, 139);
+    transition: 2s ease-in-out;
+}
 
+body.phase2 header div {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 50px;
+    
+    text-align: right;
+    
+}
+
+body.phase2 main section {
+    display: flex;
+    justify-content: center;
+
+
+
+    
+}
+body.phase2 main section div {
+
+    
+    background-color: black;
+    color: white;
+    font-size: 75px;
+    
+
+    height: 200px;
+    width: 200px;
+    
+    min-height: 400px;
+    min-width: 400px;
+    
+    margin-inline: 2px;
+    margin-top: 10%;
+    text-align: center;
+    padding: 10px;
+    
+    
+    /* --------CENTER TO VIEWPORT-------- */
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%); */
+    /* ---------------------------------- */
+}
+/* - = - =- = - = - = - = - = - =  - = - */
 
 /* ==============================================================     */
 /* ==============================================================     */

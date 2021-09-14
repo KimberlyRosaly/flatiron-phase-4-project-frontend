@@ -1,0 +1,76 @@
+/* ==============================================================     */
+/* ==============================================================     */
+/* - = - =- = - = - = - = - = - =  - = - */
+body.phase1 {
+    background-color: black;    
+}
+/* - = - =- = - = - = - = - = - =  - = - */
+
+body.phase1 main section div { 
+    
+    
+    color: lightblue;
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 200px;
+    text-align: center;
+    
+    
+    /* --------CENTER TO VIEWPORT-------- */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    /* ---------------------------------- */
+}
+
+/* ==============================================================     */
+/* ==============================================================     */
+/* - = - =- = - = - = - = - = - =  - = - */
+body.phase2 {
+    background-color: rgb(46, 136, 139);
+    transition: 2s ease-in-out;
+}
+/* - = - =- = - = - = - = - = - =  - = - */
+/* ==============================================================     */
+
+body.phase2 header div pre {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 30px;    
+    text-align: right;    
+    
+    padding-top: 10px;
+    padding-right: 40px;
+}
+/* ==============================================================     */
+
+body.phase2 main section {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+
+body.phase2 main section div {
+    font-family: 'Lovers Quarrel', cursive;
+    
+    background-color: black;
+    color: rgba(255, 255, 255, 0.563);
+    font-size: 50px;
+    
+    
+    height: 300px;
+    width: 300px;
+    
+    min-height: 200px;
+    min-width: 200px;
+    
+    margin-inline: 2px;
+    margin-top: 10%;
+    text-align: center;
+    padding: 10px;
+    
+}
+
+/* ==============================================================     */
+

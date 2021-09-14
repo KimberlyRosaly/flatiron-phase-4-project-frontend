@@ -41,6 +41,8 @@ body.phase2 header div pre {
     
     padding-top: 10px;
     padding-right: 40px;
+
+    opacity: 55%;
 }
 /* ==============================================================     */
 
@@ -52,7 +54,7 @@ body.phase2 main section {
 
 
 body.phase2 main section div {
-    font-family: 'Lovers Quarrel', cursive;
+    /* font-family: 'Lovers Quarrel', cursive; */
     
     background-color: black;
     color: rgba(255, 255, 255, 0.563);
@@ -75,4 +77,6 @@ body.phase2 main section div {
 }
 
 /* ==============================================================     */
-
+/* ==============================================================     */
+/* ==============================================================     */
+/* - = - =- = - = - = - = - = - =  - = - */

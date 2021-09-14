@@ -22,10 +22,10 @@ class App {
                 element.style.opacity = opacity
             } else {
                 clearInterval(fadeIn)                             
-                setTimeout(function(){app.phase2()}, 1000)       
+                setTimeout(function(){app.phase2()}, 100)       
             }         
 
-        }, 100)       
+        }, 10)       
 
             }
                 
@@ -47,7 +47,7 @@ class App {
             this.dom.createElementANDAppend("NAV", "", heading, "navbar")
             let hcontainer = document.querySelector('#navbar')
             // ⮟⮟⮟ GET SOME BOOTSTRAP HAPPENING HERE ⮟⮟⮟
-            hcontainer.className = "border-bottom border-dark"
+            hcontainer.className = ""
     
             // L O G O   B R A N D   T H I N G   O F   N A V I G A T I O N  BAR / HEADER / TOP
             let text = `<pre>.----------------------.<br>|  P r a y e r   B o x  |<br>'----------------------'</pre>`
@@ -56,31 +56,58 @@ class App {
             let head = document.querySelector('#navbar-brand')
             head.className = ""
                  
-         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-         // C A R D S 
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        let dMS = this.dom.mainSection   
+
+        // C A R D S 
             let text2 = "Request<br>Prayer"
                 let eID2 = "choiceA"
-                let dMS = this.dom.mainSection        
                 this.dom.createElementANDAppend('DIV', text2, dMS, eID2)
             
                 // -   -   -   -   -   -   -   -   -   -   
                 
             let text3 = "Pray<br>for<br>Others"
-                let eID3 = "choiceB"
-                // let dMS = this.dom.mainSection        
+                let eID3 = "choiceB" 
                 this.dom.createElementANDAppend('DIV', text3, dMS, eID3)
                 
-            // -   -   -   -   -   -   -   -   -   -   ======== = = = == |
+                // -   -   -   -   -   -   -   -   -   - 
 
-                let choiceA = document.querySelector('#choiceA')
-                let choiceB = document.querySelector('#choiceB')
-                dMS.className = ""
-                // S T Y L E  CARDS WITH B O O T S T R A P
-                choiceA.className = "border border-3"
-                choiceB.className = "border border-3"
+        let choiceA = document.querySelector('#choiceA')
+        let choiceB = document.querySelector('#choiceB')
+        
+        // S T Y L E  CARDS WITH B O O T S T R A P
+        choiceA.className = "border border-3"
+        choiceB.className = "border border-3"
 
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        }
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        //                 ¯`·.¸¸.·´¯`·.¸¸.ATTACH L I S T E N E R S
+        dMS.id = "parent-container"
+        console.log(dMS)
+        dMS.addEventListener("click", (e) => {
+            
+            switch(e.target.id) {
+                case "choiceA":
+                    this.phase3a()
+                    break
+                case "choiceB":
+                    this.phase3b()
+                    break                
+            }
+            
+        })
+        
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+    }
+
+    phase3a(){
+        this.dom.clearMainSection()
+        
+    }
+
+    phase3b(){
+        console.log(" A P P > P H A S E 3 B ( ) ☚(ﾟヮﾟ☚)")
+    }
     
       
 

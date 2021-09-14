@@ -38,43 +38,49 @@ class App {
          
          // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
          // H E A D I N G   I N J E C T I O N 
-         let b = this.dom.body
-         b.className = "phase2"
- 
-        //  <header></header>
-         let heading = document.querySelector('header')
- 
-         this.dom.createElementANDAppend("NAV", "", heading, "navbar")
-         let hcontainer = document.querySelector('#navbar')
-         hcontainer.className = "border-success"
- 
-         let text = `<pre>.----------------------.<br>|  P r a y e r   B o x  |<br>'----------------------'</pre>`
-         let eID = "navbar-brand"
-         this.dom.createElementANDAppend('DIV', text, hcontainer, eID)
-         let head = document.querySelector('#navbar-brand')
-         head.className = ""
+            let b = this.dom.body
+            b.className = "phase2"
+    
+            //  <header></header>
+            let heading = document.querySelector('header')
+    
+            this.dom.createElementANDAppend("NAV", "", heading, "navbar")
+            let hcontainer = document.querySelector('#navbar')
+            // ⮟⮟⮟ GET SOME BOOTSTRAP HAPPENING HERE ⮟⮟⮟
+            hcontainer.className = "border-bottom border-dark"
+    
+            // L O G O   B R A N D   T H I N G   O F   N A V I G A T I O N  BAR / HEADER / TOP
+            let text = `<pre>.----------------------.<br>|  P r a y e r   B o x  |<br>'----------------------'</pre>`
+            let eID = "navbar-brand"
+            this.dom.createElementANDAppend('DIV', text, hcontainer, eID)
+            let head = document.querySelector('#navbar-brand')
+            head.className = ""
                  
          // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-         
-         let text2 = "Request<br>Prayer"
-            let eID2 = "choiceA"
-            let dLoc = this.dom.mainSection        
-            this.dom.createElementANDAppend('DIV', text2, dLoc, eID2)
-         
-         
-         let text3 = "Pray<br>for<br>Others"
-            let eID3 = "choiceB"
-            // let dLoc = this.dom.mainSection        
-            this.dom.createElementANDAppend('DIV', text3, dLoc, eID3)
-         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- 
-         let choiceA = document.querySelector('#choiceA')
-         let choiceB = document.querySelector('#choiceB')
-         
-         this.dom.mainSection.className = ""
-         choiceA.className = "h1"
-         choiceB.className = ""
-   }
+         // C A R D S 
+            let text2 = "Request<br>Prayer"
+                let eID2 = "choiceA"
+                let dMS = this.dom.mainSection        
+                this.dom.createElementANDAppend('DIV', text2, dMS, eID2)
+            
+                // -   -   -   -   -   -   -   -   -   -   
+                
+            let text3 = "Pray<br>for<br>Others"
+                let eID3 = "choiceB"
+                // let dMS = this.dom.mainSection        
+                this.dom.createElementANDAppend('DIV', text3, dMS, eID3)
+                
+            // -   -   -   -   -   -   -   -   -   -   ======== = = = == |
+
+                let choiceA = document.querySelector('#choiceA')
+                let choiceB = document.querySelector('#choiceB')
+                dMS.className = ""
+                // S T Y L E  CARDS WITH B O O T S T R A P
+                choiceA.className = "border border-3"
+                choiceB.className = "border border-3"
+
+        // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+        }
     
       
 

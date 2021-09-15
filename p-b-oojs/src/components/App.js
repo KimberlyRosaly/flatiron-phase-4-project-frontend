@@ -101,12 +101,20 @@ class App {
     }
 
     phase3a(){
-        this.dom.clearMainSection()
+        console.log(" A P P > P H A S E 3 A ( ) ☚(ﾟヮﾟ☚)")
         
     }
-
+    
     phase3b(){
-        console.log(" A P P > P H A S E 3 B ( ) ☚(ﾟヮﾟ☚)")
+        //? > > > > GET STARTED > > > > > > > > > > 
+        this.dom.body.id = "phase3b"
+        this.dom.clearMainSection()
+        this.dom.body.removeAttribute('class')
+        //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
+
+        
+
+        
     }
     
       

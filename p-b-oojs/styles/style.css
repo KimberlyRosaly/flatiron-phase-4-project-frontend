@@ -29,12 +29,12 @@ body.phase1 main section div {
 /* - = - =- = - = - = - = - = - =  - = - */
 body.phase2 {
     background-color: rgb(46, 136, 139);
-    transition: 2s ease-in-out;
+    transition: background-color 0.5s ease;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 /* ==============================================================     */
 
-body.phase2 header div pre {
+body header div pre {
     font-family: 'Lovers Quarrel', cursive;
     font-size: 30px;    
     text-align: right;    
@@ -78,5 +78,12 @@ body.phase2 main section div {
 
 /* ==============================================================     */
 /* ==============================================================     */
-/* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
+body#phase3b {
+    background-color: palevioletred;
+    transition: background-color 0.5s ease;
+}
+/* - = - =- = - = - = - = - = - =  - = - */
+
+
+/* ==============================================================     */

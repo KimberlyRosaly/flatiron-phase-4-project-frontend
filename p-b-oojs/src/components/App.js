@@ -134,18 +134,19 @@ class App {
         .then( data => {
             data.map( 
                 o => {
-                    new Prayer(o) 
-                    // this.dom.createElementANDAppend(eTypeA, o.name, dLocA, eIDa)
+                    const pO = new Prayer(o) 
+                    let sB = document.createElement("DIV")
+                        sB.dataset.pId = o.id
+
                     let e = document.createElement("DIV")
                         e.id = ""
-                        e.innerHTML = o.name
+                        e.innerHTML = pO.prayerDisplay()
                         e.dataset.prayerId = o.id
                     this.dom.injectElement(document.querySelector('#big-box'), e)
                 }
             )
          })
-        .then( 
-         )
+     
 
         }
         

@@ -17,4 +17,13 @@ class Prayer {
 
         this.constructor.all.push(this)
     }
+
+    prayerDisplay() {
+        return `        
+            <strong>| ${ this.name } |</strong>
+            ${ this.city }, ${ this.state } | ${ this.created_at }<br>             
+            ${ this.star_counter } others have joined in prayer
+            ${ this.body }
+      `
+    }
 }

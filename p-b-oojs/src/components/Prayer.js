@@ -18,16 +18,20 @@ class Prayer {
 
     prayerDisplay() {
         return `        
+            <div class="card-title h5">
             <strong>| ${ this.name } |</strong>
-            ${ this.city }, ${ this.state } | ${ this.created_at }
-            <br>  
+            ${ this.city }, ${ this.state } | ${ this.createdAt }            
+            </div>
 
+            <div class="card-subtitle">
             <span id="star-counter" data-p-id=${ this.id }>
             ${ this.star_counter }
             </span> others have joined in prayer
-            <br>
-            
+            </div>
+
+            <div class="card-text h3 text-center">
             ${ this.body }
+            </div>
       `
     }
 }

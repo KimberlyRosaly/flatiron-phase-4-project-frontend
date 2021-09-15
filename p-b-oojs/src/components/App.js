@@ -144,6 +144,9 @@ class App {
                     let sBox = document.createElement("DIV")
                         sBox.id = "small-box"
                         sBox.dataset.pId = o.id
+                        // BOOTSTRAP STYLING
+                        sBox.className = "card m-3 p-2"
+                        sBox.style = "max-width: 800px;"
                         this.dom.injectElement(bBox, sBox)
                     
 
@@ -152,6 +155,8 @@ class App {
                             pE.id = "prayer-box"
                             pE.dataset.pId = o.id
                             pE.innerHTML = pO.prayerDisplay()
+                            // BOOTSTRAP STYLING
+                            pE.className = "card"
                             this.dom.injectElement(sBox, pE)
                         
                     // P A R E N T : CREATE CONTAINER ELEMENT FOR COMMENTS DATA
@@ -159,6 +164,8 @@ class App {
                         cE.id = "comments-box"
                         cE.dataset.pId = o.id
                         cE.innerHTML = "COMMENTS WILL LIVE HERE"
+                        // BOOTSTRAP STYLING
+                        cE.className = "card"
                         this.dom.injectElement(sBox, cE)                        
                 }
             )} )

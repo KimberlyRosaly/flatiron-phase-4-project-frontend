@@ -115,8 +115,18 @@ class App {
 
         const prayersData = this.api.getAllPrayers()
         
-        
-        
+        // P A R E N T
+        let eType = "DIV"
+        let text = ""
+        let dLoc = this.dom.mainSection
+        let eID = "big-box"
+        this.dom.createElementANDAppend(eType, text, dLoc, eID)
+            // C H I L D
+            let eTypeA = "DIV"
+            let textA = ""
+            let dLocA = document.querySelector('#big-box')
+            let eIDa = "small-box"
+            this.dom.createElementANDAppend(eTypeA, textA, dLocA, eIDa)
     }
 
  

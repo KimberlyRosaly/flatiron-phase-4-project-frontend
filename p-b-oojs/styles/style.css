@@ -28,7 +28,7 @@ body.phase1 main section div {
 /* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
 body.phase2 {
-    background-color: rgb(46, 136, 139);
+    background-color: paleturquoise;
     transition: background-color 0.5s ease;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
@@ -42,7 +42,8 @@ body header div pre {
     padding-top: 10px;
     padding-right: 40px;
 
-    opacity: 55%;
+    /* opacity: 55%; */
+    line-height: 100%;
 }
 /* ==============================================================     */
 
@@ -82,6 +83,10 @@ body.phase2 main section div {
 body#phase3b {
     background-color: palevioletred;
     transition: background-color 0.5s ease;
+}
+body#phase3b header div pre {
+    transition: line-height 0.5s ease;
+    line-height: 150%;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 

@@ -1,6 +1,7 @@
 class App {
     constructor(){
         this.dom = new Dom() 
+        this.api = new APIadapter()
         this.phase1()
     }
 
@@ -112,10 +113,13 @@ class App {
         this.dom.body.removeAttribute('class')
         //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
 
+        const prayersData = this.api.getAllPrayers()
         
-
+        
         
     }
+
+ 
     
       
 

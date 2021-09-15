@@ -37,6 +37,7 @@ class Dom {
 
     clearMainSection(){
         this.mainSection.innerHTML = ""
+        this.mainSection.removeAttribute('id')
     }
     //====================================================
 }

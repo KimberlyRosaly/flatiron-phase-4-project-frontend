@@ -113,7 +113,6 @@ class App {
         this.dom.body.removeAttribute('class')
         //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
 
-        const prayersData = this.api.getAllPrayers()
         
         // P A R E N T
         let eType = "DIV"
@@ -126,11 +125,32 @@ class App {
             let textA = ""
             let dLocA = document.querySelector('#big-box')
             let eIDa = "small-box"
-            this.dom.createElementANDAppend(eTypeA, textA, dLocA, eIDa)
-    }
+            // this.dom.createElementANDAppend(eTypeA, textA, dLocA, eIDa)
+            
+            // - - - - - - - - - - - - - - -  - - - - -
 
- 
-    
+
+        this.api.getAllPrayers()
+        .then( data => {
+            data.map( 
+                o => {
+                    new Prayer(o) 
+                    // this.dom.createElementANDAppend(eTypeA, o.name, dLocA, eIDa)
+                    let e = document.createElement("DIV")
+                        e.id = ""
+                        e.innerHTML = o.name
+                        e.dataset.prayerId = o.id
+                    this.dom.injectElement(document.querySelector('#big-box'), e)
+                }
+            )
+         })
+        .then( 
+         )
+
+        }
+        
+        
+        
       
 
 }

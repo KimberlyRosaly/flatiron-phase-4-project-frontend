@@ -19,11 +19,11 @@ class App {
         let fadeIn = setInterval(function() {
             
             if (opacity < 1) {
-                opacity = opacity + 0.1
+                opacity = opacity + 0.01
                 element.style.opacity = opacity
             } else {
                 clearInterval(fadeIn)                             
-                setTimeout(function(){app.phase2()}, 100)       
+                setTimeout(function(){app.phase2()}, 1000)       
             }         
 
         }, 10)       
@@ -113,65 +113,87 @@ class App {
         //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
 
         
-        // P A R E N T
+        // G R A N D   P A R E N T
         let eType = "DIV"
         let text = ""
         let dLoc = this.dom.mainSection
         let eID = "big-box"
         this.dom.createElementANDAppend(eType, text, dLoc, eID)
-            // C H I L D
-            let eTypeA = "DIV"
-            let textA = ""
-            let dLocA = document.querySelector('#big-box')
-            let eIDa = "small-box"
-            // this.dom.createElementANDAppend(eTypeA, textA, dLocA, eIDa)
             
             // - - - - - - - - - - - - - - -  - - - - -
 
 
         this.api.getAllPrayers()
-        .then( data => {
-            data.map( 
-                o => {
+        .then( 
+            data => {
+                data.map( o => {
+                    // - - - - - - - - - - - - - - -  - - - - -        
                     //CREATE A PRAYER CLASS OBJECT
-                    const pO = new Prayer(o) 
+                    const pO = new Prayer( o ) 
+                    // - - - - - - - - - - - - - - -  - - - - -    
 
-                    // G R A N D P A R E N T : REFERENCE ENCAPSULATING CONTAINER
-                    let bBox =  document.querySelector('#big-box')
+                        // G R A N D P A R E N T : REFERENCE ENCAPSULATING CONTAINER
+                        let bBox =  document.querySelector('#big-box')
 
-                    // P A R E N T  : CREATE ITS OWN BOX CONTAINER
-                    // FOR PRAYER & ITS COMMENTS
-                    let sBox = document.createElement("DIV")
-                        sBox.id = "small-box"
-                        sBox.dataset.pId = o.id
-                        // BOOTSTRAP STYLING
-                        sBox.className = "card m-3 p-2"
-                        sBox.style = "max-width: 800px;"
-                        this.dom.injectElement(bBox, sBox)
-                    
-
-                        // C H I L D : CREATE ELEMENT WITH PRAYER DATA
-                        let pE = document.createElement("DIV")
-                            pE.id = "prayer-box"
-                            pE.dataset.pId = o.id
-                            pE.innerHTML = pO.prayerDisplay()
-                            // BOOTSTRAP STYLING
-                            pE.className = "card"
-                            this.dom.injectElement(sBox, pE)
+                        // P A R E N T  : CREATE ITS OWN BOX CONTAINER
+                        // FOR PRAYER & ITS COMMENTS
+                        let sBox = document.createElement("DIV")
+                            sBox.id = "small-box"
+                            sBox.dataset.pId = pO.id
+                            
+                            sBox.className = "m-3 p-2"
+                            sBox.style = "max-width: 800px;"
+                            this.dom.injectElement(bBox, sBox)
                         
-                    // P A R E N T : CREATE CONTAINER ELEMENT FOR COMMENTS DATA
-                    let cE = document.createElement("DIV")
-                        cE.id = "comments-box"
-                        cE.dataset.pId = o.id
-                        cE.innerHTML = "COMMENTS WILL LIVE HERE"
-                        // BOOTSTRAP STYLING
-                        cE.className = "card"
-                        this.dom.injectElement(sBox, cE)                        
-                }
-            )} )
-     
 
-        }
+                            // C H I L D : CREATE ELEMENT WITH PRAYER DATA
+                            let pE = document.createElement("DIV")
+                                pE.id = "prayer-box"
+                                pE.dataset.pId = pO.id
+                                pE.innerHTML = pO.prayerDisplay()
+                                
+                                pE.className = "card"
+                                this.dom.injectElement(sBox, pE)
+                        
+                        // - - - - - - - - - - - - - - -  - - - - -    
+                        
+                        // G R A N D P A R E N T : CONTAINER ELEMENT FOR futureCOMMENTS DATA
+                        let csE = document.createElement("DIV")
+                            csE.id = "big-comments-box-" + pO.id                                  
+                            // BOOTSTRAP STYLING
+                            csE.className = "container"
+                            this.dom.injectElement(sBox, csE)    
+                        let bCsB = document.getElementById(`big-comments-box-${pO.id}`)
+
+                            // C H I L D : ROW ELEMENT for COMMENT CARDS
+                            let csRE = document.createElement('DIV')
+                                csRE.id = "comments-row-" + pO.id
+
+                                csRE.className = "row"
+                                this.dom.injectElement(bCsB, csRE)
+                    })})
+        .then( 
+            this.api.getAllComments() 
+            .then( 
+                data => {
+                    data.map( cO => {
+                        //CREATE A COMMENT CLASS OBJECT
+                        const comment = new Comment(cO)
+                        // P A R E N T  : REFERENCE ENCAPSULATING CONTAINER
+                        let commentsBox = document.querySelector(`#comments-row-${comment.prayerId}`)
+                        
+
+                        // C H I L D  : COMMENT CARD ELEMENT
+                        let cE = document.createElement("DIV")
+                            cE.id = "small-comment-box"
+                            cE.className = "col card"
+                            cE.innerHTML = comment.commentDisplay()
+                            this.dom.injectElement(commentsBox, cE)
+
+                    })
+            }))     
+
+    }
         
         
         

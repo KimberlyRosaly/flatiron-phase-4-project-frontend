@@ -3,7 +3,7 @@ class Prayer {
     constructor(object) {
                 
         this.id = object.id
-        this.star_counter = object.star_counter
+        this.starCounter = object.star_counter
 
         this.body = object.body
         this.name = object.name
@@ -25,7 +25,7 @@ class Prayer {
 
             <div class="card-subtitle">
             <span id="star-counter" data-p-id=${ this.id }>
-            ${ this.star_counter }
+            ${ this.starCounter }
             </span> others have joined in prayer
             </div>
 

@@ -10,10 +10,13 @@ class APIadapter {
     }
      */
 
-    getAllPrayers = () => {
-        
+    getAllPrayers = () => {        
         return fetch( this.baseURL + "/prayers" )
         .then( response => response.json() )
+    }
 
+    getAllComments = () => {
+        return fetch( this.baseURL + "/comments" )
+        .then( response => response.json() )
     }
 }

@@ -1,9 +1,7 @@
 class Prayer {
     static all = []
     constructor(object) {
-        console.log("HELLO YOU TOO")
-        // this.data = object
-        
+                
         this.id = object.id
         this.star_counter = object.star_counter
 
@@ -21,8 +19,14 @@ class Prayer {
     prayerDisplay() {
         return `        
             <strong>| ${ this.name } |</strong>
-            ${ this.city }, ${ this.state } | ${ this.created_at }<br>             
-            ${ this.star_counter } others have joined in prayer
+            ${ this.city }, ${ this.state } | ${ this.created_at }
+            <br>  
+
+            <span id="star-counter" data-p-id=${ this.id }>
+            ${ this.star_counter }
+            </span> others have joined in prayer
+            <br>
+            
             ${ this.body }
       `
     }

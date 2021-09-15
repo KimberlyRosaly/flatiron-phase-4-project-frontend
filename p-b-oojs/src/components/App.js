@@ -84,7 +84,6 @@ class App {
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         //                 ¯`·.¸¸.·´¯`·.¸¸.ATTACH L I S T E N E R S
         dMS.id = "parent-container"
-        console.log(dMS)
         dMS.addEventListener("click", (e) => {
             
             switch(e.target.id) {
@@ -134,18 +133,35 @@ class App {
         .then( data => {
             data.map( 
                 o => {
+                    //CREATE A PRAYER CLASS OBJECT
                     const pO = new Prayer(o) 
-                    let sB = document.createElement("DIV")
-                        sB.dataset.pId = o.id
 
-                    let e = document.createElement("DIV")
-                        e.id = ""
-                        e.innerHTML = pO.prayerDisplay()
-                        e.dataset.prayerId = o.id
-                    this.dom.injectElement(document.querySelector('#big-box'), e)
+                    // G R A N D P A R E N T : REFERENCE ENCAPSULATING CONTAINER
+                    let bBox =  document.querySelector('#big-box')
+
+                    // P A R E N T  : CREATE ITS OWN BOX CONTAINER
+                    // FOR PRAYER & ITS COMMENTS
+                    let sBox = document.createElement("DIV")
+                        sBox.id = "small-box"
+                        sBox.dataset.pId = o.id
+                        this.dom.injectElement(bBox, sBox)
+                    
+
+                        // C H I L D : CREATE ELEMENT WITH PRAYER DATA
+                        let pE = document.createElement("DIV")
+                            pE.id = "prayer-box"
+                            pE.dataset.pId = o.id
+                            pE.innerHTML = pO.prayerDisplay()
+                            this.dom.injectElement(sBox, pE)
+                        
+                    // P A R E N T : CREATE CONTAINER ELEMENT FOR COMMENTS DATA
+                    let cE = document.createElement("DIV")
+                        cE.id = "comments-box"
+                        cE.dataset.pId = o.id
+                        cE.innerHTML = "COMMENTS WILL LIVE HERE"
+                        this.dom.injectElement(sBox, cE)                        
                 }
-            )
-         })
+            )} )
      
 
         }

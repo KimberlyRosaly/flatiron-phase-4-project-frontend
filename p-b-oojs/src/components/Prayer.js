@@ -16,6 +16,48 @@ class Prayer {
         this.constructor.all.push(this)
     }
 
+    static newForm() {
+        return `
+
+            <form class="p-5">
+
+            <!-- N A M E -->
+    <input type="text" class="form-control" name="name" placeholder="Name:"></input>    
+
+
+    
+            <!-- M E S S A G E -->
+    <div class="form-outline">
+        <textarea class="form-control" rows="4" placeholder="Message: Write your prayer request here.."></textarea>
+    </div>
+
+ 
+            <!-- C I T Y -->  <!-- S T A T E-->
+    <div class="row">
+    <div class="col">
+        
+        <input type="text" class="form-control" placeholder="City" />
+        
+    </div>
+
+    <div class="col">
+        
+        <input type="text" class="form-control" placeholder="State" />
+        
+    </div>
+    </div>
+
+
+            <!-- S U B M I T -->
+    <div class="d-grid">
+        <button class="btn btn-primary" type="button">Submit Prayer</button>
+    </div>
+
+            </form>
+
+        `
+    }
+
     prayerDisplay() {
         return `        
             <div class="card-title">
@@ -34,4 +76,6 @@ class Prayer {
             </div>
       `
     }
+
+
 }

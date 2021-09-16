@@ -19,11 +19,11 @@ class App {
         let fadeIn = setInterval(function() {
             
             if (opacity < 1) {
-                opacity = opacity + 0.01
+                opacity = opacity + 0.1
                 element.style.opacity = opacity
             } else {
                 clearInterval(fadeIn)                             
-                setTimeout(function(){app.phase2()}, 1000)       
+                setTimeout(function(){app.phase2()}, 5)       
             }         
 
         }, 10)       
@@ -77,8 +77,8 @@ class App {
         let choiceB = document.querySelector('#choiceB')
         
         // S T Y L E  CARDS WITH B O O T S T R A P
-        choiceA.className = "border border-3"
-        choiceB.className = "border border-3"
+        choiceA.className = "border border-success border-4 shadow"
+        choiceB.className = "border border-primary border-4 shadow"
 
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -102,6 +102,15 @@ class App {
 
     phase3a(){
         console.log(" A P P > P H A S E 3 A ( ) ☚(ﾟヮﾟ☚)")
+        //? > > > > GET STARTED > > > > > > > > > > 
+        this.dom.body.id = "phase3a"
+        this.dom.clearMainSection()
+        this.dom.body.removeAttribute('class')
+        //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
+
+        let blip = Prayer.newForm()
+        // let element = document.createElement('DIV')
+        this.dom.createElementANDAppend("DIV", blip, this.dom.mainSection, "pForm")
         
     }
     

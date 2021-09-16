@@ -1,4 +1,20 @@
 /* ==============================================================     */
+/* = = = = = == = = = = = = = = = = = =  L O G O = = =  */
+body header div pre {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 30px;    
+    text-align: right;    
+    
+    text-shadow: 0 0 3px #f5f1e9;
+    
+    
+    padding-top: 10px;
+    padding-right: 40px;
+    
+    /* opacity: 55%; */
+    line-height: 100%;
+}
+/* = = = = = == = = = = = = = = = = = =  L O G Oend = = =  */
 /* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
 body.phase1 {
@@ -33,18 +49,6 @@ body.phase2 {
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 /* ==============================================================     */
-
-body header div pre {
-    font-family: 'Lovers Quarrel', cursive;
-    font-size: 30px;    
-    text-align: right;    
-    
-    padding-top: 10px;
-    padding-right: 40px;
-
-    /* opacity: 55%; */
-    line-height: 100%;
-}
 /* ==============================================================     */
 
 body.phase2 main section {
@@ -96,10 +100,10 @@ body#phase3b header div pre {
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 #prayer-box {
-/*     
-  margin-left: 100px;
-  margin-right: 100px; */
-  padding: 200px;
+    /*     
+    margin-left: 100px;
+    margin-right: 100px; */
+    padding: 200px;
     border-radius: 10px / 50px;
 }
 #small-comment-box {
@@ -107,4 +111,26 @@ body#phase3b header div pre {
     border-radius: 40px;
 }
 
+/* ==============================================================     */
+/* ==============================================================     */
+/* - = - =- = - = - = - = - = - =  - = - */
+body#phase3a {
+    background-color: rgb(216, 166, 112);
+    transition: background-color 0.5s ease;
+}
+body#phase3a header div pre {
+    transition: line-height 0.5s ease;
+    
+    line-height: 150%;
+
+    text-align: left;
+    padding-top: 10px;
+    padding-left: 40px;
+    
+    text-shadow: 0 0 3px #1b1b1c79;
+    /* opacity: 55%; */
+    /* line-height: 100%; */
+}
+/* - = - =- = - = - = - = - = - =  - = - */
+/* ==============================================================     */
 /* ==============================================================     */

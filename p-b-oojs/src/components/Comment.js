@@ -17,14 +17,19 @@ class Comment {
 
     commentDisplay() {
         return `
+            <div class="card-body text-center">
+            <strong>${this.body}</strong>
+            </div>
             
-            ${this.body}
-            <br>
+            <div class="card-text">
             ${this.name}
-            <br>
-            ${this.city}, ${this.state}
-            <br>
-            ${this.createdAt}           
+            </div>
+
+            <div class="card-text" style="font-size: 10px;">        
+                ${this.city}, ${this.state}
+                     <br>
+                ${this.createdAt}
+            </div>           
             
         `
     }

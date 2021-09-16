@@ -152,7 +152,7 @@ class App {
                                 pE.dataset.pId = pO.id
                                 pE.innerHTML = pO.prayerDisplay()
                                 
-                                pE.className = "card"
+                                pE.className = "card p-3 shadow border border-dark border-5"
                                 this.dom.injectElement(sBox, pE)
                         
                         // - - - - - - - - - - - - - - -  - - - - -    
@@ -186,7 +186,7 @@ class App {
                         // C H I L D  : COMMENT CARD ELEMENT
                         let cE = document.createElement("DIV")
                             cE.id = "small-comment-box"
-                            cE.className = "col card"
+                            cE.className = "col card pt-0 pb-4 pl-4 pr-4 mb-2 align-items-center"
                             cE.innerHTML = comment.commentDisplay()
                             this.dom.injectElement(commentsBox, cE)
 

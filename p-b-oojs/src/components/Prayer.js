@@ -18,7 +18,7 @@ class Prayer {
 
     prayerDisplay() {
         return `        
-            <div class="card-title h5">
+            <div class="card-title">
             <strong>| ${ this.name } |</strong>
             ${ this.city }, ${ this.state } | ${ this.createdAt }            
             </div>
@@ -29,8 +29,8 @@ class Prayer {
             </span> others have joined in prayer
             </div>
 
-            <div class="card-text h3 text-center">
-            ${ this.body }
+            <div class="card-text text-center p-3">
+            <strong>${ this.body }</strong>
             </div>
       `
     }

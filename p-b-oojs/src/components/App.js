@@ -108,10 +108,18 @@ class App {
         this.dom.body.removeAttribute('class')
         //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
 
-        let blip = Prayer.newForm()
+        let formInnerHTML = Prayer.newForm()
         // let element = document.createElement('DIV')
-        this.dom.createElementANDAppend("DIV", blip, this.dom.mainSection, "pForm")
+        this.dom.createElementANDAppend("DIV", formInnerHTML, this.dom.mainSection, "big-form-box")
+
+        let formOnDom = document.querySelector('#new-prayer-form')
+        formOnDom.addEventListener("submit", this.submissionHandler)
         
+    }
+
+    submissionHandler(e) {
+        e.preventDefault()
+        console.log("YOU MADE IT TO THE EVENT PLACE ♥ ♥")
     }
     
     phase3b(){

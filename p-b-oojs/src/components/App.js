@@ -130,6 +130,16 @@ class App {
         app.api.prayerBoxRequest( newPrayer )
         .then( dbPrayerObjectResponse => {
             const p = new Prayer(dbPrayerObjectResponse)
+
+
+            //PHASE3B CLONE
+            // W/ pretty newPrayer Appeneded to top
+            app.phase3b()
+            // FIND THAT PRAYER ON THE DOM
+            //  >> DELETE ENTIRE SMALL-BOX PRAYER NODE
+            // ADD NEW CONTAINER ON TOP
+            //  >> INSIDE HAVE PRETTY newPRAYER
+
         } ) 
 
     }
@@ -155,6 +165,15 @@ class App {
         this.api.getAllPrayers()
         .then( 
             data => {
+                // ==============================================================
+                //DESTRUCTIVELY LOOP THROUGH ARRAY TO SORT - created_at is default  
+                // THERE MUST BE A BETTER WAY FOR 'CREATED_AT' SORTING        
+                for (var i = 0, j = data.length; i < data.length; i++) {
+                    data.splice(i, 0, data[j - 1]);
+                    data.splice(j, 1);
+                }
+                // ==============================================================
+                
                 data.map( o => {
                     // - - - - - - - - - - - - - - -  - - - - -        
                     //CREATE A PRAYER CLASS OBJECT
@@ -167,7 +186,7 @@ class App {
                         // P A R E N T  : CREATE ITS OWN BOX CONTAINER
                         // FOR PRAYER & ITS COMMENTS
                         let sBox = document.createElement("DIV")
-                            sBox.id = "small-box"
+                            sBox.id = "small-box-" + pO.id
                             sBox.dataset.pId = pO.id
                             
                             sBox.className = "m-3 p-2"

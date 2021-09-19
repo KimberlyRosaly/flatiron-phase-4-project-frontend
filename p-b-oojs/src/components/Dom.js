@@ -5,7 +5,8 @@ class Dom {
         this.body = document.querySelector('body')  
     }
 
-
+    appendThing(o){
+    }
     
 
     // ====================================================

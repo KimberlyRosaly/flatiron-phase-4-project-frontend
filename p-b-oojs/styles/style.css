@@ -4,8 +4,8 @@ body header div pre {
     font-family: 'Lovers Quarrel', cursive;
     font-size: 30px;    
     text-align: right;    
-    
-    text-shadow: 0 0 3px #f5f1e9;
+    color: rgba(245, 245, 245, 0.412);
+    text-shadow: #FC0 1px 0 10px;
     
     
     padding-top: 10px;
@@ -46,6 +46,9 @@ body.phase1 main section div {
 body.phase2 {
     background-color: paleturquoise;
     transition: background-color 0.5s ease;
+
+    background-image: url('https://live.staticflickr.com/65535/51489458092_5686ad8529_k.jpg');
+    background-size: cover;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 /* ==============================================================     */
@@ -91,12 +94,13 @@ body.phase2 main section div {
 /* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
 body#phase3b {
-    background-color: palevioletred;
+    background-color: rgb(112, 162, 216);
     transition: background-color 0.5s ease;
 }
 body#phase3b header div pre {
     transition: line-height 0.5s ease;
     line-height: 150%;
+    color: darkblue;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 #prayer-box {
@@ -115,7 +119,7 @@ body#phase3b header div pre {
 /* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
 body#phase3a {
-    background-color: rgb(216, 166, 112);
+    background-color: rgba(34, 162, 2, 0.748);
     transition: background-color 0.5s ease;
 }
 body#phase3a header div pre {
@@ -128,6 +132,7 @@ body#phase3a header div pre {
     padding-left: 40px;
     
     text-shadow: 0 0 3px #1b1b1c79;
+    color: rgba(72, 72, 10, 0.685);
     /* opacity: 55%; */
     /* line-height: 100%; */
 }

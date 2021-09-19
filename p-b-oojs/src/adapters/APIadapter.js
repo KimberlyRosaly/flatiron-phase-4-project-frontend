@@ -5,8 +5,8 @@ class APIadapter {
     }
     
     prayerBoxRequest = ( newPrayer ) => {
-
         // ALLOW DATA TO PASS THROUGH RAILS API
+        // WITH CONFIGURATION OBJECT for FETCH REQUEST
         let configObject = {
             method: 'POST',
             headers: {
@@ -14,9 +14,9 @@ class APIadapter {
                 "Accept": "application/json"
             },
 
-            body: JSON.stringify( newPrayer )
-        }
-
+            body: JSON.stringify( newPrayer )}
+        // FETCH WILL RETURN newDATA FROM AN 
+        // OBJECT IN THE RAILS API DATABASE
         return fetch( (this.baseURL + "/prayers"), configObject )
         .then( response => response.json() )        
     }

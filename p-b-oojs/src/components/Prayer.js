@@ -4,57 +4,43 @@ class Prayer {
                 
         this.id = object.id
         this.starCounter = object.star_counter
-
         this.body = object.body
         this.name = object.name
         this.city = object.city
         this.state = object.state
-
-        this.createdAt = object.created_at
-        
+        this.createdAt = object.created_at        
 
         this.constructor.all.push(this)
     }
 
     static newForm() {
         return `
+            <div class="h1 text-center"><pre>Create your<br> P R A Y E R  R E Q U E S T <br>here</pre></div>
 
-            <form class="p-5">
-
-            <!-- N A M E -->
-    <input type="text" class="form-control" name="name" placeholder="Name:"></input>    
-
-
-    
-            <!-- M E S S A G E -->
-    <div class="form-outline">
-        <textarea class="form-control" rows="4" placeholder="Message: Write your prayer request here.."></textarea>
-    </div>
-
- 
-            <!-- C I T Y -->  <!-- S T A T E-->
-    <div class="row">
-    <div class="col">
+            <!-- ID - LOCK IN ON DOM  - then ADD  E V E N T   L I S T E N E R  > "SUBMIT" BUTTON -->
+            <form id="new-prayer-form" class="p-5">
+                <!-- N A M E -->
+                <input type="text" class="form-control" name="prayer[name]" placeholder="Name:"></input>    
         
-        <input type="text" class="form-control" placeholder="City" />
-        
-    </div>
+                <!-- M E S S A G E -->
+                <div class="form-outline">
+                    <textarea class="form-control" name="prayer[body]" rows="4" placeholder="Message:"></textarea>
+                </div> 
+                <!-- C I T Y -->  <!-- S T A T E-->
+                <div class="row">
+                    <div class="col">                    
+                        <input type="text" class="form-control" name="prayer[city]" placeholder="City" />                    
+                    </div>
 
-    <div class="col">
-        
-        <input type="text" class="form-control" placeholder="State" />
-        
-    </div>
-    </div>
-
-
-            <!-- S U B M I T -->
-    <div class="d-grid">
-        <button class="btn btn-primary" type="button">Submit Prayer</button>
-    </div>
-
+                    <div class="col">                    
+                        <input type="text" class="form-control" name="prayer[state]" placeholder="State" />                    
+                    </div>
+                </div>
+                <!-- S U B M I T -->
+                <div class="d-grid">
+                    <input class="btn btn-primary" type="submit" value="Submit Prayer"></input>
+                </div>
             </form>
-
         `
     }
 

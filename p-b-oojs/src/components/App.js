@@ -119,7 +119,19 @@ class App {
 
     submissionHandler(e) {
         e.preventDefault()
-        console.log("YOU MADE IT TO THE EVENT PLACE ♥ ♥")
+        
+        const newPrayer = {
+            name: e.target['prayer[name]'].value,            
+            body: e.target['prayer[body]'].value,            
+            city: e.target['prayer[city]'].value,            
+            state: e.target['prayer[state]'].value       
+        }
+
+        app.api.prayerBoxRequest( newPrayer )
+        .then( dbPrayerObjectResponse => {
+            const p = new Prayer(dbPrayerObjectResponse)
+        } ) 
+
     }
     
     phase3b(){

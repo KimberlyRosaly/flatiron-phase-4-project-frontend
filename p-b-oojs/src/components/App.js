@@ -113,11 +113,10 @@ class App {
         this.dom.createElementANDAppend("DIV", formInnerHTML, this.dom.mainSection, "big-form-box")
 
         let formOnDom = document.querySelector('#new-prayer-form')
-        formOnDom.addEventListener("submit", this.submissionHandler)
-        
-    }
+        formOnDom.addEventListener("submit", this.prayerSubmissionHandler)        
+    }  
 
-    submissionHandler(e) {
+    prayerSubmissionHandler(e) {
         e.preventDefault()
         
         const newPrayer = {
@@ -128,21 +127,128 @@ class App {
         }
 
         app.api.prayerBoxRequest( newPrayer )
-        .then( dbPrayerObjectResponse => {
-            const p = new Prayer(dbPrayerObjectResponse)
-
-
-            //PHASE3B CLONE
-            // W/ pretty newPrayer Appeneded to top
-            app.phase3b()
-            // FIND THAT PRAYER ON THE DOM
-            //  >> DELETE ENTIRE SMALL-BOX PRAYER NODE
-            // ADD NEW CONTAINER ON TOP
-            //  >> INSIDE HAVE PRETTY newPRAYER
-
-        } ) 
-
+        .then( (response) => {
+            if (response.id) {   
+                return app.phase3c(response.id)
+            } else {
+                console.log("FORM SUBMISSION VALUES INADEQUATE - ERROR MESSAGES SHOULD LIVE IN THIS BLOCK")
+            }
+         })
     }
+
+    phase3c(res){
+
+        //? > > > > GET STARTED > > > > > > > > > > 
+        this.dom.body.id = "phase3b"
+        this.dom.clearMainSection()
+        this.dom.body.removeAttribute('class')
+        //? ⮭ ⮭ CLEAN STUFF UP ⮭ ⮭ ⮭
+
+
+        // G R A N D   P A R E N T
+        let eType = "DIV"
+        let text = ""
+        let dLoc = this.dom.mainSection
+        let eID = "big-box"
+        this.dom.createElementANDAppend(eType, text, dLoc, eID)
+            
+            // - - - - - - - - - - - - - - -  - - - - -
+
+
+        this.api.getAllPrayers()
+        .then( 
+            data => {
+                // ==============================================================
+                //DESTRUCTIVELY LOOP THROUGH ARRAY TO SORT - created_at is default  
+                // THERE MUST BE A BETTER WAY FOR 'CREATED_AT' SORTING        
+                for (var i = 0, j = data.length; i < data.length; i++) {
+                    data.splice(i, 0, data[j - 1]);
+                    data.splice(j, 1);
+                }
+                // ==============================================================
+                
+                data.map( o => {
+                    // - - - - - - - - - - - - - - -  - - - - -        
+                    //CREATE A PRAYER CLASS OBJECT
+                    const pO = new Prayer( o ) 
+                    // - - - - - - - - - - - - - - -  - - - - -    
+
+                        // G R A N D P A R E N T : REFERENCE ENCAPSULATING CONTAINER
+                        let bBox =  document.querySelector('#big-box')
+
+                        // P A R E N T  : CREATE ITS OWN BOX CONTAINER
+                        // FOR PRAYER & ITS COMMENTS
+                        let sBox = document.createElement("DIV")
+                            sBox.id = "small-box-" + pO.id
+                            sBox.dataset.pId = pO.id
+                            
+                            sBox.className = "m-3 p-2"
+                            sBox.style = "max-width: 800px;"
+                            this.dom.injectElement(bBox, sBox)
+                        
+
+                            // C H I L D : CREATE ELEMENT WITH PRAYER DATA
+                            let pE = document.createElement("DIV")
+                                pE.id = "prayer-box"
+                                pE.dataset.pId = pO.id
+                                pE.innerHTML = pO.prayerDisplay()
+                                
+                                pE.className = "card p-3 shadow border border-dark border-5"
+                                this.dom.injectElement(sBox, pE)
+                        
+                        // - - - - - - - - - - - - - - -  - - - - -    
+                        
+                        // G R A N D P A R E N T : CONTAINER ELEMENT FOR futureCOMMENTS DATA
+                        let csE = document.createElement("DIV")
+                            csE.id = "big-comments-box-" + pO.id                                  
+                            // BOOTSTRAP STYLING
+                            csE.className = "container"
+                            this.dom.injectElement(sBox, csE)    
+                        let bCsB = document.getElementById(`big-comments-box-${pO.id}`)
+
+                            // C H I L D : ROW ELEMENT for COMMENT CARDS
+                            let csRE = document.createElement('DIV')
+                                csRE.id = "comments-row-" + pO.id
+
+                                csRE.className = "row"
+                                this.dom.injectElement(bCsB, csRE)
+                    })})
+        .then( 
+            this.api.getAllComments() 
+            .then( 
+                data => {
+                    data.map( cO => {
+                        //CREATE A COMMENT CLASS OBJECT
+                        const comment = new Comment(cO)
+                        // P A R E N T  : REFERENCE ENCAPSULATING CONTAINER
+                        let commentsBox = document.querySelector(`#comments-row-${comment.prayerId}`)
+                        
+
+                        // C H I L D  : COMMENT CARD ELEMENT
+                        let cE = document.createElement("DIV")
+                            cE.id = "small-comment-box"
+                            cE.className = "col card pt-0 pb-4 pl-4 pr-4 mb-2 align-items-center"
+                            cE.innerHTML = comment.commentDisplay()
+                            this.dom.injectElement(commentsBox, cE)
+
+                    })
+            }))
+        .then(() => {
+            // DOM HAS ALL PRAYERS AND COMMENTS LOADED
+            // SELECT PARENT ELEMENT FOR SORTING CHILDREN
+            let parentE = document.querySelector('#big-box')
+            
+            // SELECT CHILD CONTAINER OF SUBMITTED PRAYER
+            let childE = document.querySelector('#small-box-' + res)
+
+            // MAKE newPRAYER ELEMENT STAND OUT - STYLISH!! & BEAUTIFUL!!
+            childE.style="background-color: green;"
+
+            // MOVE newPRAYER ELEMENT INTO DOM AT THE TOP OF PRAYERSBOXCONTAINER
+            parentE.prepend(childE)
+        })     
+
+    }           
     
     phase3b(){
         //? > > > > GET STARTED > > > > > > > > > > 

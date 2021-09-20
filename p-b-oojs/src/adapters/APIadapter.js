@@ -30,7 +30,6 @@ class APIadapter {
         return fetch( this.baseURL + "/comments" )
         .then( response => response.json() )
     }
-
 }
 
 

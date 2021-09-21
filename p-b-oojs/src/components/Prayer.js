@@ -47,20 +47,39 @@ class Prayer {
     prayerDisplay() {
         return `        
             <div class="card-title">
-            <strong>| ${ this.name } |</strong>
-            ${ this.city }, ${ this.state } | ${ this.createdAt }            
+                <strong>| ${ this.name } |</strong>
+                ${ this.city }, ${ this.state } | ${ this.createdAt }            
             </div>
 
             <div class="card-subtitle">
-            <span id="star-counter" data-p-id=${ this.id }>
-            ${ this.starCounter }
-            </span> others have joined in prayer
+                <span id="star-counter" data-p-id=${ this.id }>
+                    ${ this.starCounter }
+                </span> others have joined in prayer
             </div>
 
+            
             <div class="card-text text-center p-3">
-            <strong>${ this.body }</strong>
+                <strong>${ this.body }</strong>
             </div>
-      `
+
+
+            <div class="row">
+
+                <button type="button" 
+                id="star-button-${ this.starCounter }" data-p-id=${ this.id }
+                class="btn btn-outline-info" style="background-color: #FFBA0F21;">
+                    P R ☆ Y
+                </button>
+
+
+                <button type="button"
+                class="btn btn-outline-warning" style="background-color: #FF630F33;">
+                    C O M M E N T
+                </button>
+
+            </div>
+
+            `
     }
 
 

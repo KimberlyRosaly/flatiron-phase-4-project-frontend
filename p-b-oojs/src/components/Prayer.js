@@ -52,9 +52,11 @@ class Prayer {
             </div>
 
             <div class="card-subtitle">
-                <span id="star-counter" data-p-id=${ this.id }>
+            
+                <span id="star-counter-${ this.id }" data-p-id=${ this.id }>
                     ${ this.starCounter }
-                </span> others have joined in prayer
+                </span>
+                 others have joined in prayer
             </div>
 
             
@@ -66,7 +68,7 @@ class Prayer {
             <div class="row">
 
                 <button type="button" 
-                id="star-button-${ this.starCounter }" data-p-id=${ this.id }
+                id="star-button-${ this.id }" data-p-id=${ this.id }
                 class="btn btn-outline-info" style="background-color: #FFBA0F21;">
                     P R ☆ Y
                 </button>
@@ -80,6 +82,45 @@ class Prayer {
             </div>
 
             `
+    }
+
+    starPrayer(e) {
+        //? ????????????????????????????????????????
+        //? ????????????????????????????????????????
+        //? IS THIS  O P T I M I S T I C  RENDERING??
+        //?     DOM UPDATES > PATCH FETCH REQUEST
+        //? ????????????????????????????????????????
+        //? ????????????????????????????????????????
+        
+        // F R O N T E N D STUFF- - - - - - - - - - - - - 
+        // LOCATE ON DOM
+        let starSpan = document.querySelector(`#star-counter-${e.target.dataset.pId}`)
+        // ISOLATE
+        let counter = parseInt(starSpan.innerText)
+        // 
+        let updatedCounter = counter + 1
+        // INCREASE PRAYER COUNT ON THE DOM
+        starSpan.innerHTML = updatedCounter
+        // PREVENT RE-"LIKE"ING - DISABLE BUTTON
+        e.target.disabled = true
+        
+        // MAKE COUNTER STAND OUT
+        starSpan.style = "text-shadow: 0 0 10px blue; color: blue;"
+        // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _  
+        
+        // B A C K E N D STUFF- - - - - - - - - - - - - 
+        let prayerID = e.target.dataset.pId
+        
+        app.api.starPrayerPatchRequest(prayerID, updatedCounter)
+        // _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+
+        //*  ∙∙·▫▫ᵒᴼᵒ▫ₒₒ▫ᵒᴼ🆂🆃🆁🅴🆃🅲🅷 🅶🅾🅰🅻ᴼᵒ▫ₒₒ▫ᵒᴼᵒ▫▫·∙∙
+        //*   ++++++++++++++++++++++++++++++++++++++++++
+        //*   ++++++++++++++++++++++++++++++++++++++++++
+            //*  READ INSIDE > NOTES
+                //*  CONTROLLER HANDLES DB CALCULATION
+        //*   ++++++++++++++++++++++++++++++++++++++++++
     }
 
 

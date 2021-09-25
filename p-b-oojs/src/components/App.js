@@ -19,11 +19,11 @@ class App {
         let fadeIn = setInterval(function() {
             
             if (opacity < 1) {
-                opacity = opacity + 0.1
+                opacity = opacity + 0.01
                 element.style.opacity = opacity
             } else {
                 clearInterval(fadeIn)                             
-                setTimeout(function(){app.phase2()}, 5)       
+                setTimeout(function(){app.phase2()}, 1000)       
             }         
 
         }, 10)       
@@ -117,6 +117,7 @@ class App {
     }  
 
     prayerSubmissionHandler(e) {
+        // NO OUT-OF-THE-BOX BEHAVIORS
         e.preventDefault()
         
         const newPrayer = {
@@ -309,6 +310,12 @@ class App {
                                 pE.className = "card p-3 shadow border border-dark border-5"
                                 this.dom.injectElement(sBox, pE)
                         
+                        // - - - - - - - - - - - - - - -  - - - - -    
+                        // - - - - - - - - - - - - - - -  - - - - -STAR BUTTON LISTENER
+                        // - - - - - - - - - - - - - - -  - - - - -    
+                        let star = document.getElementById(`star-button-${ pO.id }`)
+                        star.addEventListener("click", pO.starPrayer)
+                        // - - - - - - - - - - - - - - -  - - - - -    
                         // - - - - - - - - - - - - - - -  - - - - -    
                         
                         // G R A N D P A R E N T : CONTAINER ELEMENT FOR futureCOMMENTS DATA

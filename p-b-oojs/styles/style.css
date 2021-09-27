@@ -43,12 +43,16 @@ body.phase1 main section div {
 /* ==============================================================     */
 /* ==============================================================     */
 /* - = - =- = - = - = - = - = - =  - = - */
+html{min-height: 100%;}
 body.phase2 {
     background-color: paleturquoise;
     transition: background-color 0.5s ease;
 
-    background-image: url('https://live.staticflickr.com/65535/51489458092_5686ad8529_k.jpg');
-    background-size: cover;
+    /* background-image: url('https://live.staticflickr.com/65535/51489458092_5686ad8529_k.jpg'); */
+    /* background-size: center; */
+    background-image: linear-gradient(to bottom right, lightblue, darkblue, orange);
+    height: 100%;
+    width: 100%;
 }
 /* - = - =- = - = - = - = - = - =  - = - */
 /* ==============================================================     */

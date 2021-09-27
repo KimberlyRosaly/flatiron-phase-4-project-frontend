@@ -34,14 +34,13 @@ class Comment {
         `
     }
 
-    static formDisplay(){
+    static formDisplay(pID){
         return `
-        <div class="form">
+        <div class="form mt-4">
             <form id="new-comment-form">
             
                 <!-- N A M E -->
-                <input type="text" class="form-control" name="comment[name]" placeholder="Name:"></input>    
-                
+                <input type="text" class="form-control" name="comment[name]" placeholder="Name:"></input> 
                 <!-- M E S S A G E -->
                 <div class="form-outline">
                     <textarea class="form-control" name="comment[body]" rows="4" placeholder="Message:"></textarea>
@@ -56,11 +55,15 @@ class Comment {
                         <input type="text" class="form-control" name="comment[state]" placeholder="State" />                    
                     </div>
                 </div>
+
                 <!-- S U B M I T -->
                 <div class="d-grid">
-                    <input class="btn btn-primary" type="submit" value="Submit comment"></input>
+                    <input class="btn btn-primary" 
+                    type="submit"
+                    id="comment-submission-button-${ pID }"
+                    dataset-prayer-id="${ pID }" 
+                    value="Submit comment"></input>
                 </div>
-
 
             </form>
         </div>

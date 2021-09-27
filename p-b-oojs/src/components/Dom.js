@@ -6,7 +6,15 @@ class Dom {
     }
 
     static injectCommentForm(e){
-        e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay()
+        // PARENT NODE
+        let capture = e.target.closest("[id^=prayer-box]")
+        let prayerID = capture.dataset.pId
+
+        // FORM INJECTION INTO PARENT
+        e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay(prayerID)
+        
+        let cSubmit = document.querySelector(`#comment-submission-button-${ prayerID }`)
+        cSubmit.addEventListener("click", Comment.submissionHandler)
     }
     
 

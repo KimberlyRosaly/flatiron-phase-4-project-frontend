@@ -338,7 +338,7 @@ class App {
 
                      // - - - - - - - - - - - - - - -  - - - - -    
                      let comment = document.getElementById(`comment-button-${ pO.id }`)
-                    //  debugger
+                    
                      comment.addEventListener( "click", Comment.buttonClick )
                      // - - - - - - - - - - - - - - -  - - - - -    
 

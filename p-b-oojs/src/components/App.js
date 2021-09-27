@@ -5,6 +5,7 @@ class App {
         this.phase1()
     }
 
+    // INTRO CARD
     phase1(){
         //GET SOME CSS MATCHED UP FOR PARENT ELEMENT ENCAPSULATED BEAUTY
         this.dom.body.className = "phase1"
@@ -29,7 +30,7 @@ class App {
         }, 10)       
 
             }
-                
+    // HOME   
     phase2(){           
          // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
          this.dom.clearMainSection()
@@ -99,7 +100,7 @@ class App {
         
         // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     }
-
+    // REQUEST PRAYER FORM
     phase3a(){
         console.log(" A P P > P H A S E 3 A ( ) ☚(ﾟヮﾟ☚)")
         //? > > > > GET STARTED > > > > > > > > > > 
@@ -251,6 +252,8 @@ class App {
 
     }           
     
+    // PRAYER INDEX
+    // DOM RENDERING < --  - - MOVE TO DOM??? MAYBE??
     phase3b(){
         //? > > > > GET STARTED > > > > > > > > > > 
         this.dom.body.id = "phase3b"
@@ -311,14 +314,14 @@ class App {
                                 this.dom.injectElement(sBox, pE)
                         
                         // - - - - - - - - - - - - - - -  - - - - -    
-                        // - - - - - - - - - - - - - - -  - - - - -STAR BUTTON LISTENER
+                        // ✩ ✩ ✩ ✩   ✩-  ✩   ✩-    STAR BUTTON LISTENER
                         // - - - - - - - - - - - - - - -  - - - - -    
                         let star = document.getElementById(`star-button-${ pO.id }`)
                         star.addEventListener("click", pO.starPrayer)
                         // - - - - - - - - - - - - - - -  - - - - -    
                         // - - - - - - - - - - - - - - -  - - - - -    
                         
-                        // G R A N D P A R E N T : CONTAINER ELEMENT FOR futureCOMMENTS DATA
+//--------------------------G R A N D P A R E N T : CONTAINER ELEMENT FOR futureCOMMENTS DATA
                         let csE = document.createElement("DIV")
                             csE.id = "big-comments-box-" + pO.id                                  
                             // BOOTSTRAP STYLING
@@ -332,6 +335,17 @@ class App {
 
                                 csRE.className = "row"
                                 this.dom.injectElement(bCsB, csRE)
+
+                     // - - - - - - - - - - - - - - -  - - - - -    
+                     let comment = document.getElementById(`comment-button-${ pO.id }`)
+                    //  debugger
+                     comment.addEventListener( "click", Comment.buttonClick )
+                     // - - - - - - - - - - - - - - -  - - - - -    
+
+
+
+
+
                     })})
         .then( 
             this.api.getAllComments() 
@@ -355,6 +369,9 @@ class App {
             }))     
 
     }
+
+    // COMMENT SITUATION
+    phase3d(){}
         
         
         

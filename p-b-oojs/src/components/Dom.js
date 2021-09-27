@@ -5,7 +5,8 @@ class Dom {
         this.body = document.querySelector('body')  
     }
 
-    appendThing(o){
+    static injectCommentForm(e){
+        e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay()
     }
     
 

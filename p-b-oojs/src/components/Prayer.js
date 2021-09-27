@@ -75,6 +75,8 @@ class Prayer {
 
 
                 <button type="button"
+                id="comment-button-${ this.id }"
+                data-prayer-id="${ this.id }" 
                 class="btn btn-outline-warning" style="background-color: #FF630F33;">
                     C O M M E N T
                 </button>

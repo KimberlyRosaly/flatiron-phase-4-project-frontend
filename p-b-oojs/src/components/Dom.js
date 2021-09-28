@@ -15,6 +15,8 @@ class Dom {
         let cForm = document.querySelector(`#new-comment-form-${ prayerID }`)
         cForm.addEventListener("submit", Comment.submissionHandler)
     }
+
+    
     
 
     // ====================================================

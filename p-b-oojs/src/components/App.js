@@ -372,6 +372,21 @@ class App {
 
     // COMMENT SITUATION
     phase3d(){}
+
+    commentSuccess(JSONobject){
+        //MAKE JS CLASS OBJECT OUT OF RETURNED PROMISE
+        const newComment = new Comment(JSONobject)
+        let commentCard = app.dom.makeElement("DIV", "small-comment-box", newComment.commentDisplay())
+        commentCard.className = "col card pt-0 pb-4 pl-4 pr-4 mb-2 align-items-center"
+        // THE ROW TO INJECT THE NEW COMMENT DIV
+        let commentsBox = document.querySelector(`#comments-row-${ newComment.prayerId }`)
+        app.dom.injectElement(commentsBox, commentCard)
+        
+        app.dom.removeElementByID(`comment-form-container-${ newComment.prayerId }`)
+        
+        // debugger
+
+    }
         
         
         

@@ -69,7 +69,6 @@ class APIadapter {
 
         return fetch( (this.baseURL + "/comments"), configurationObject )
         .then( response => response.json() )
-        .then( response => console.log("API RETURN OBJECT:", response))
     }
 
 

@@ -36,7 +36,7 @@ class Comment {
 
     static formDisplay(pID){
         return `
-        <div class="form mt-4">
+        <div class="form mt-4" id="comment-form-container-${ pID }">
             <form id="new-comment-form-${ pID }" data-prayer-id="${ pID }">
             
                 <div class="h4 text-center">CREATE A COMMENT<br>FOR THIS PRAYER:</div>
@@ -91,6 +91,7 @@ class Comment {
         
         console.log(newComment)
         app.api.commentRequest( newComment )
+        .then((result) => app.commentSuccess(result))
         
     }
 // = - = - = - = - = - = - = - = 

@@ -54,6 +54,24 @@ class APIadapter {
         .then( r => console.log(r))    
     }
 
+    //+ + + + + + + + + + + + + + + + + + + + + + c o m m e n t s
+    commentRequest = ( newComment ) => {
+
+        console.log("API POST REQ BLOCK: NEW COMMENT:", newComment)
+        let configurationObject = {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+
+            body: JSON.stringify( newComment ) }
+
+        return fetch( (this.baseURL + "/comments"), configurationObject )
+        .then( response => response.json() )
+        .then( response => console.log("API RETURN OBJECT:", response))
+    }
+
 
 
 }

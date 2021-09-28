@@ -37,8 +37,9 @@ class Comment {
     static formDisplay(pID){
         return `
         <div class="form mt-4">
-            <form id="new-comment-form">
+            <form id="new-comment-form-${ pID }" data-prayer-id="${ pID }">
             
+                <div class="h4 text-center">CREATE A COMMENT<br>FOR THIS PRAYER:</div>
                 <!-- N A M E -->
                 <input type="text" class="form-control" name="comment[name]" placeholder="Name:"></input> 
                 <!-- M E S S A G E -->
@@ -61,7 +62,6 @@ class Comment {
                     <input class="btn btn-primary" 
                     type="submit"
                     id="comment-submission-button-${ pID }"
-                    dataset-prayer-id="${ pID }" 
                     value="Submit comment"></input>
                 </div>
 
@@ -72,11 +72,26 @@ class Comment {
     
 // = - = - = - = - = - = - = - = FORM HANDLING
     // COMMENT BUTTON CLICK
-    static buttonClick(e) {
-        
+    static buttonClick(e) {        
 
         Dom.injectCommentForm(e)
         // e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay()
+    }
+
+    static submissionHandler(e) {
+        e.preventDefault()
+        
+        const newComment = {
+            name: e.target['comment[name]'].value,            
+            body: e.target['comment[body]'].value,            
+            city: e.target['comment[city]'].value,            
+            state: e.target['comment[state]'].value,
+            prayer_id: e.target.dataset.prayerId
+        }
+        
+        console.log(newComment)
+        app.api.commentRequest( newComment )
+        
     }
 // = - = - = - = - = - = - = - = 
 }

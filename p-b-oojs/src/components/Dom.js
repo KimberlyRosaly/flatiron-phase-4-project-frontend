@@ -12,9 +12,8 @@ class Dom {
 
         // FORM INJECTION INTO PARENT
         e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay(prayerID)
-        
-        let cSubmit = document.querySelector(`#comment-submission-button-${ prayerID }`)
-        cSubmit.addEventListener("click", Comment.submissionHandler)
+        let cForm = document.querySelector(`#new-comment-form-${ prayerID }`)
+        cForm.addEventListener("submit", Comment.submissionHandler)
     }
     
 

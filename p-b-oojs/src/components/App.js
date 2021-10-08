@@ -371,7 +371,7 @@ class App {
     }
 
     // COMMENT SITUATION
-    phase3d(){}
+    // phase3d(){}
 
     commentSuccess(JSONobject){
         //MAKE JS CLASS OBJECT OUT OF RETURNED PROMISE

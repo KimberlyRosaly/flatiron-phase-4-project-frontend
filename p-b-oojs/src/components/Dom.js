@@ -11,8 +11,15 @@ class Dom {
         let prayerID = capture.dataset.pId
 
         // FORM INJECTION INTO PARENT
-        e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay(prayerID)
+        // Create element to house comment form
+        let newEle = app.dom.makeElement("DIV", `comment-form-container-${ prayerID }`, Comment.formDisplay(prayerID))
+        // ADD CLASS ATTRIBuTE & STYLE
+        newEle.className = "form mt-4"
+        // INJECT FANCy FORM ELEMENT INTO NEAREST PARENT OF WHAT IS CLICKED
+        e.target.closest("[id^=prayer-box]").append(newEle)
+        // LOCATE FORM ON DOM
         let cForm = document.querySelector(`#new-comment-form-${ prayerID }`)
+        // ADD LISTENER FOR FORM SUBMISSION BUTTON CLICK
         cForm.addEventListener("submit", Comment.submissionHandler)
     }
 

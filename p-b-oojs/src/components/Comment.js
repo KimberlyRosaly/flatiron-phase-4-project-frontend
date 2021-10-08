@@ -73,7 +73,7 @@ class Comment {
     static buttonClick(e) {        
 
         Dom.injectCommentForm(e)
-        // e.target.closest("[id^=prayer-box]").innerHTML += Comment.formDisplay()
+        // e.target.closest("[id^=prayer-box]").append(Comment.formDisplay()
     }
 
     static submissionHandler(e) {
@@ -86,8 +86,7 @@ class Comment {
             state: e.target['comment[state]'].value,
             prayer_id: e.target.dataset.prayerId
         }
-        
-        console.log(newComment)
+                
         app.api.commentRequest( newComment )
         .then((result) => app.commentSuccess(result))
         

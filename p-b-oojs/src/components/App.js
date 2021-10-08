@@ -138,6 +138,7 @@ class App {
          })
     }
 
+    // NEW PRAYER SUBMITTED - THEN...
     phase3c(res){
 
         //? > > > > GET STARTED > > > > > > > > > > 
@@ -382,10 +383,12 @@ class App {
         let commentsBox = document.querySelector(`#comments-row-${ newComment.prayerId }`)
         app.dom.injectElement(commentsBox, commentCard)
         
+        // DESTROY FORM NODE
         app.dom.removeElementByID(`comment-form-container-${ newComment.prayerId }`)
+        // DISABLE COMMENT butTON TO PREVENT MULTIPLE SUCCESSFUL SUBMISSIONS
+        let cButton = document.getElementById(`comment-button-${ newComment.prayerId }`)        
+        cButton.disabled = true
         
-        // debugger
-
     }
         
         

@@ -5,8 +5,7 @@ class APIadapter {
         this.baseURL = "http://127.0.0.1:3000/api/v1"        
     }
 // .-~*´¨¯¨`*·~-.CONSTRUCTOR.-~*´¨¯¨`*·~-.¸. . . . . . 
-    
-    
+     
 
     getAllPrayers = () => {        
         return fetch( this.baseURL + "/prayers" )
@@ -54,7 +53,6 @@ class APIadapter {
         .then( r => console.log(r))    
     }
 
-    //+ + + + + + + + + + + + + + + + + + + + + + c o m m e n t s
     commentRequest = ( newComment ) => {
 
         console.log("API POST REQ BLOCK: NEW COMMENT:", newComment)

@@ -30,7 +30,7 @@ class App {
         }, 10)       
 
             }
-    // HOME   
+    // HOME - CHOICE PAGE   
     phase2(){           
          // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
          this.dom.clearMainSection()
@@ -117,6 +117,7 @@ class App {
         formOnDom.addEventListener("submit", this.prayerSubmissionHandler)        
     }  
 
+    // NEW PRAYER SUBMIT BUTTON CLICK
     prayerSubmissionHandler(e) {
         // NO OUT-OF-THE-BOX BEHAVIORS
         e.preventDefault()
@@ -131,7 +132,8 @@ class App {
         app.api.prayerBoxRequest( newPrayer )
         .then( (response) => {
             if (response.id) {   
-                return app.phase3c(response.id)
+                return app.phase3b()
+                // return app.phase3c(response.id)
             } else {
                 console.log("FORM SUBMISSION VALUES INADEQUATE - ERROR MESSAGES SHOULD LIVE IN THIS BLOCK")
             }
@@ -236,20 +238,7 @@ class App {
 
                     })
             }))
-        .then(() => {
-            // DOM HAS ALL PRAYERS AND COMMENTS LOADED
-            // SELECT PARENT ELEMENT FOR SORTING CHILDREN
-            let parentE = document.querySelector('#big-box')
-            
-            // SELECT CHILD CONTAINER OF SUBMITTED PRAYER
-            let childE = document.querySelector('#small-box-' + res)
-
-            // MAKE newPRAYER ELEMENT STAND OUT - STYLISH!! & BEAUTIFUL!!
-            childE.style="background-color: green;"
-
-            // MOVE newPRAYER ELEMENT INTO DOM AT THE TOP OF PRAYERSBOXCONTAINER
-            parentE.prepend(childE)
-        })     
+        
 
     }           
     
@@ -337,10 +326,11 @@ class App {
                                 csRE.className = "row"
                                 this.dom.injectElement(bCsB, csRE)
 
-                     // - - - - - - - - - - - - - - -  - - - - -    
-                     let comment = document.getElementById(`comment-button-${ pO.id }`)
-                    
+                     // - - - - - - - - - - - - -  - - - - -  
+                     // - - - - - - - - - - - - -  - - - - -   COMMENT BUTTON LISTENER 
+                     let comment = document.getElementById(`comment-button-${ pO.id }`)                    
                      comment.addEventListener( "click", Comment.buttonClick )
+                     // - - - - - - - - - - - - - - -  - - - - -    
                      // - - - - - - - - - - - - - - -  - - - - -    
 
 
@@ -370,9 +360,6 @@ class App {
             }))     
 
     }
-
-    // COMMENT SITUATION
-    // phase3d(){}
 
     commentSuccess(JSONobject){
         //MAKE JS CLASS OBJECT OUT OF RETURNED PROMISE

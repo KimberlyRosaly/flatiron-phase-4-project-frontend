@@ -15,7 +15,7 @@ class Dom {
         if (existingForm) {
             app.dom.removeElementByID(`comment-form-container-${ prayerID }`)
         } else {
-             // ===================================================
+            // ===================================================
             // FORM INJECTION INTO PARENT
             // Create element to house comment form        
             let newEle = app.dom.makeElement("DIV", `comment-form-container-${ prayerID }`, Comment.formDisplay(prayerID))
@@ -28,14 +28,12 @@ class Dom {
             // ADD LISTENER FOR FORM SUBMISSION BUTTON CLICK
             cForm.addEventListener("submit", Comment.submissionHandler)
             // ===================================================
-        }
-
-       
+        }       
     }
 
     
     
-
+    // T O O L B O X ======================================
     // ====================================================
     //======== D O M   M A N I P U L A T I O N=============
     makeElement(elementType, elementID, text){

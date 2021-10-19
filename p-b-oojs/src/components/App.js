@@ -268,7 +268,7 @@ class App {
                 // ==============================================================
                 //DESTRUCTIVELY LOOP THROUGH ARRAY TO SORT - created_at is default  
                 // THERE MUST BE A BETTER WAY FOR 'CREATED_AT' SORTING        
-                for (var i = 0, j = data.length; i < data.length; i++) {
+                for (let i = 0, j = data.length; i < data.length; i++) {
                     data.splice(i, 0, data[j - 1]);
                     data.splice(j, 1);
                 }
